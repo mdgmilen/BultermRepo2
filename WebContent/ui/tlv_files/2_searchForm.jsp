@@ -1,6 +1,6 @@
 ﻿
 <jsp:directive.page import="com.improve1.bulterm.ProjectSettings" />
-<jsp:directive.page import="com.improve1.bulterm.LanguageList" />
+<jsp:directive.page import="com.improve1.bulterm.entities.LanguageList" />
 
 <jsp:scriptlet>
 String columnToSearchS = String.valueOf(session.getAttribute("columnToSearch"));

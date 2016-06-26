@@ -67,7 +67,7 @@
     <jsp:text><![CDATA[<a href="]]></jsp:text>
     <jsp:expression>ProjectSettings.pathPrefix</jsp:expression>
     <jsp:text><![CDATA[servlet/TermListServlet]]></jsp:text>
-    <!--<jsp:expression>termId</jsp:expression>-->
+    <!-- jsp:expression>termId /jsp:expression>-->
     <jsp:text><![CDATA[">Търсене</a>]]></jsp:text>
     -&gt; Вход с електронна поща </h6>
 

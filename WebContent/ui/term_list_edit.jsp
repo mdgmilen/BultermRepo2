@@ -33,7 +33,7 @@
 		  
 		  
 		    
-<jsp:directive.page import="com.improve1.bulterm.TermList" />	   
+<jsp:directive.page import="com.improve1.bulterm.entities.TermList" />	   
 		   
 
 		   

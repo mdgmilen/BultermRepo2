@@ -11,7 +11,7 @@
 <link href="resources/css/default.css" rel="stylesheet" type="text/css" />
 </head>
 <!-- %@ page import="java.util.ArrayList"%> -->
-<jsp:directive.page import="com.improve1.bulterm.Standard" />
+<jsp:directive.page import="com.improve1.bulterm.entities.Standard" />
 <jsp:directive.page import="com.improve1.bulterm.ProjectSettings" />
 
 

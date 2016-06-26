@@ -9,6 +9,8 @@ import java.text.SimpleDateFormat;*/
 import javax.servlet.*;
 import javax.servlet.http.*;
 
+import com.improve1.bulterm.ProjectSettings;
+
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

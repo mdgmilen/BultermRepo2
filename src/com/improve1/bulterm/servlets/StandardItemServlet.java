@@ -8,6 +8,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.improve1.bulterm.DA_Cud;
+import com.improve1.bulterm.DA_Retrieve;
+import com.improve1.bulterm.ProjectSettings;
+import com.improve1.bulterm.entities.Standard;
+
 public class StandardItemServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -24,7 +29,8 @@ public class StandardItemServlet extends HttpServlet {
 		int standardId = 0;
 		String standardIdP = request.getParameter("standard_id");
 		if (standardIdP != null) standardId = Integer.parseInt(standardIdP);
-		DbProvider dbProv = new DbProvider();
+		//DbProvider dbProv = new DbProvider();
+		DA_Retrieve dbProv = new DA_Retrieve();
 		if        (actionP != null && actionP.equals("edit_standard")) {
 			// session.setAttribute("term_id", termIdP);
 			session.setAttribute("standard", dbProv.getStandard(standardId));
@@ -52,14 +58,15 @@ public class StandardItemServlet extends HttpServlet {
 		//String actionP = request.getParameter("do_what");
 		String identifierParP = request.getParameter("s_identifier");
 		String nameParP = request.getParameter("s_name");
-		DbProvider dbProv = new DbProvider();
+		DA_Cud daCud = new DA_Cud();
+		DA_Retrieve daRetrieve = new DA_Retrieve();
 		switch (actionS) {
-		case "new":  session.setAttribute("standard", dbProv.getStandard(dbProv.newStandard(identifierParP, nameParP ))  );
+		case "new":  session.setAttribute("standard", daRetrieve.getStandard(daCud.newStandard(identifierParP, nameParP ))  );
           break;
-        case "edit":  dbProv.editStandard(standardS.getStandardId(), identifierParP, nameParP );
-		  session.setAttribute("standard", dbProv.getStandard(standardS.getStandardId()));
+        case "edit":  daCud.editStandard(standardS.getStandardId(), identifierParP, nameParP );
+		  session.setAttribute("standard", daRetrieve.getStandard(standardS.getStandardId()));
 		  break;
-        case "delete":  dbProv.deleteStandard(standardS.getStandardId());
+        case "delete":  daCud.deleteStandard(standardS.getStandardId());
 		  //session.setAttribute("standard", dbProv.getStandard(standardS.getStandardId()));
           session.removeAttribute("standard");
 		  break;

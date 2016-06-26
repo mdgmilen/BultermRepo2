@@ -1,11 +1,14 @@
 package com.improve1.bulterm;
 
+import java.sql.ResultSet;
+
+import com.improve1.bulterm.entities.*;
+
 //import java.sql.ResultSet;
-//import java.sql.SQLException;
+import java.sql.SQLException;
 
 public class BL_Contributor {
-/*
-	private TermNameList getTermNames(ResultSet rset) {
+	public TermNameList getTermNames(ResultSet rset) {
 		TermNameList termNames = new TermNameList();
 		TermName termName = null;
 		try {
@@ -61,7 +64,7 @@ public class BL_Contributor {
 		return termNames;
 	}//getTermNames()
 	
-	/*private String getColumnName(String columnToSearch) {
+	public String getColumnName(String columnToSearch) {
 		String columnName = null;
 		// if (columnToSearch == "groupIdentifier") {
 		// columnName = "groupIdent";
@@ -78,5 +81,5 @@ public class BL_Contributor {
 		// }
 		columnName = columnToSearch;
 		return columnName;
-	}*/
+	}
 }//class

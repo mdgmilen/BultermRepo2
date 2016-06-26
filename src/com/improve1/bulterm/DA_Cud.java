@@ -46,7 +46,7 @@ public class DA_Cud {
 		//this.rset = null;
 		this.prepStmt2 = null;
 		//this.rset2 = null;
-	}*/
+	}*/ 
 
 	public void connect() {
 		// settings, db user pass
@@ -56,7 +56,7 @@ public class DA_Cud {
 		// local: improve1_bultermL bultermuser milen
 		String url = "jdbc:mysql://localhost:3306/improve1_bultermL";
 		try {
-			if (this.conn == null) {
+			if (this.getConn() == null) {
 				Class.forName("com.mysql.jdbc.Driver");
 				java.util.Properties prop = new Properties();
 				prop.setProperty("user", "bultermuser");
@@ -64,7 +64,7 @@ public class DA_Cud {
 				// prop.setProperty("useUnicode","true");
 				prop.setProperty("characterEncoding", "utf-8"); // Cp1251
 				// prop.setProperty("DB2e_ENCODING", "Cp102"); // "Cp102" UTF-8
-				this.conn = DriverManager.getConnection(url, prop);
+				this.setConn(DriverManager.getConnection(url, prop));
 			}
 		} catch (ClassNotFoundException ex) {
 			System.out.println(ex.toString());
@@ -88,7 +88,7 @@ public class DA_Cud {
 		String sql = "{ call sp_insert_term(?, ?) }";
 		CallableStatement l_stmt=null;
 		try {
-			l_stmt = (CallableStatement) this.conn.prepareCall(sql);
+			l_stmt = (CallableStatement) this.getConn().prepareCall(sql);
 			
 			l_stmt.setString(1, bulgarian);
 			l_stmt.registerOutParameter(2, java.sql.Types.INTEGER);
@@ -122,7 +122,7 @@ public class DA_Cud {
         //default: xxx;     	break;
 		}//switch
 		try {
-			this.stmt = this.conn.createStatement();
+			this.stmt = this.getConn().createStatement();
 			this.stmt.executeUpdate(sql);
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -134,7 +134,7 @@ public class DA_Cud {
 		//int result = 0;
 		String sql = "{ call sp_delete_term("+termId+") }";
 		try {
-			this.stmt = this.conn.createStatement(); 
+			this.stmt = this.getConn().createStatement(); 
 			this.stmt.executeUpdate(sql);  //result = 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -148,7 +148,7 @@ public class DA_Cud {
 		String sql = "{ call sp_insert_standard(?, ?, ?) }";
 		CallableStatement l_stmt=null;
 		try {
-			l_stmt = (CallableStatement) this.conn.prepareCall(sql); // createStatement(); // prepareStatement(sql);
+			l_stmt = (CallableStatement) this.getConn().prepareCall(sql); // createStatement(); // prepareStatement(sql);
 			// (sql, ResultSet.TYPE_SCROLL_SENSITIVE);
 			//this.prepStmt.setString(1, identifier);
 			//result = this.stmt.executeUpdate(sql);
@@ -172,7 +172,7 @@ public class DA_Cud {
 		//int result = 0;
 		String sql = "{ call sp_update_standard("+standardId+", '"+identifier+"', '"+name+"') }";
 		try {
-			this.stmt = this.conn.createStatement(); // prepareStatement(sql);
+			this.stmt = this.getConn().createStatement(); // prepareStatement(sql);
 			// (sql, ResultSet.TYPE_SCROLL_SENSITIVE);
 			this.stmt.executeUpdate(sql);   //result = 
 			// this.conn.commit();
@@ -188,7 +188,7 @@ public class DA_Cud {
 		//int result = 0;
 		String sql = "{ call sp_delete_standard("+standardId+") }";
 		try {
-			this.stmt = this.conn.createStatement(); // prepareStatement(sql);
+			this.stmt = this.getConn().createStatement(); // prepareStatement(sql);
 			// (sql, ResultSet.TYPE_SCROLL_SENSITIVE);
 			this.stmt.executeUpdate(sql);  //result = 
 			// this.conn.commit();
@@ -258,7 +258,7 @@ public class DA_Cud {
 				+ "', "
 				+ dateTimeInt + ", '" + dateTimeStr + "' ) ";
 		try {
-			this.stmt = this.conn.createStatement(); // prepareStatement(sql);
+			this.stmt = this.getConn().createStatement(); // prepareStatement(sql);
 			// (sql, ResultSet.TYPE_SCROLL_SENSITIVE);
 			result = this.stmt.executeUpdate(sql);
 			// this.conn.commit();
@@ -269,4 +269,54 @@ public class DA_Cud {
 
 		return result;
 	}//logWebuserAction()
+
+
+	public PreparedStatement getPrepStmt() {
+		return prepStmt;
+	}
+
+
+	public void setPrepStmt(PreparedStatement prepStmt) {
+		this.prepStmt = prepStmt;
+	}
+
+
+	public Connection getConn() {
+		return conn;
+	}
+
+
+	public void setConn(Connection conn) {
+		this.conn = conn;
+	}
+
+
+	public ResultSet getRset() {
+		return rset;
+	}
+
+
+	public void setRset(ResultSet rset) {
+		this.rset = rset;
+	}
+
+
+	public PreparedStatement getPrepStmt2() {
+		return prepStmt2;
+	}
+
+
+	public void setPrepStmt2(PreparedStatement prepStmt2) {
+		this.prepStmt2 = prepStmt2;
+	}
+
+
+	public ResultSet getRset2() {
+		return rset2;
+	}
+
+
+	public void setRset2(ResultSet rset2) {
+		this.rset2 = rset2;
+	}
 }// class

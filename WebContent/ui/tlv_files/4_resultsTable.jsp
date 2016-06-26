@@ -1,8 +1,8 @@
 ﻿
 <jsp:directive.page import="com.improve1.bulterm.ProjectSettings" />
-<jsp:directive.page import="com.improve1.bulterm.TermList" />
-<jsp:directive.page import="com.improve1.bulterm.Term" />
-<jsp:directive.page import="com.improve1.bulterm.LanguageList" />
+<jsp:directive.page import="com.improve1.bulterm.entities.TermList" />
+<jsp:directive.page import="com.improve1.bulterm.entities.Term" />
+<jsp:directive.page import="com.improve1.bulterm.entities.LanguageList" />
 
 <jsp:scriptlet>
 TermList terms = (TermList) session.getAttribute("terms");

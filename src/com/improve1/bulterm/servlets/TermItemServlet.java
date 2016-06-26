@@ -8,6 +8,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.improve1.bulterm.DA_Cud;
+import com.improve1.bulterm.DA_Retrieve;
+import com.improve1.bulterm.ProjectSettings;
+import com.improve1.bulterm.entities.Term;
+
 /**
  * Servlet implementation class TermListEditServlet
  */
@@ -30,7 +35,7 @@ public class TermItemServlet extends HttpServlet {
 		String actionP = request.getParameter("do_what");
 		// String actionP = String.valueOf(session.getAttribute("email"));
 
-		// form termId(incl. XXX) All(incl.Empty) EditableXxx if ... SaveNew or
+		// form termId(incl. XX) All(incl.Empty) EditableXxx if ... SaveNew or
 		// SaveEdited and Cancel (re-view and EditSomethingElse or CloseWindow
 		// (new term was not added))
 		// form Confirmation (Saved or empty) termId All(incl.Empty)
@@ -38,8 +43,8 @@ public class TermItemServlet extends HttpServlet {
 
 		int termId = 0;
 		String termIdP = request.getParameter("term_id");
-		DbProvider dbProv=null;
-		dbProv = new DbProvider();
+		//DbProvider dbProv=null; 		dbProv = new DbProvider();
+		DA_Retrieve dbProv = new DA_Retrieve();
 		
 		boolean thereIsAction = false; if (actionP != null) { thereIsAction = true;	}
 		boolean thereIsTermId = false; if (termIdP != null) { thereIsTermId = true; }
@@ -109,11 +114,13 @@ public class TermItemServlet extends HttpServlet {
 		// 2 new_tstandard edit_tstandard
 		// 1 new_term
 
-		DbProvider dbProv = new DbProvider();
+		//DbProvider dbProv = new DbProvider();
+		DA_Cud daCud = new DA_Cud();
+		DA_Retrieve daRetrieve = new DA_Retrieve();
 		if (/*modeS.equals("new") &&*/ actionS.equals("new_term") ) {
 			//termIdS, 2, 70 parentEntryId 
-			int newTermId = dbProv.newTerm(request.getParameter("t_bulgarian"));
-			session.setAttribute("term", dbProv.getTerm(newTermId) );
+			int newTermId = daCud.newTerm(request.getParameter("t_bulgarian"));
+			session.setAttribute("term", daRetrieve.getTerm(newTermId) );
 		} else { //if (modeS.equals("new")) {
 		//} else if (modeS.equals("edit")) {
 			String itemValue = "";
@@ -127,8 +134,8 @@ public class TermItemServlet extends HttpServlet {
 			if (actionS.endsWith("_tfrench") )      itemValue = request.getParameter("t_french");
 	        //default: xxx;     	break;
 			//}//switch
-			dbProv.editTerm(actionS, termS.getTermId(), itemValue);
-			session.setAttribute("term", dbProv.getTerm(termS.getTermId()));
+			daCud.editTerm(actionS, termS.getTermId(), itemValue);
+			session.setAttribute("term", daRetrieve.getTerm(termS.getTermId()));
 		}// if, is not new_term
 		//sp_update_term("+termId+", '"+action+"', "+languageId+", '"+itemName+"', '"+valueEbrgfDs+"')
 		
@@ -151,7 +158,7 @@ public class TermItemServlet extends HttpServlet {
 			}
 		}*/
 		if (actionS.equals("delete_term") ) {
-			dbProv.deleteTerm(termS.getTermId());
+			daCud.deleteTerm(termS.getTermId());
 			session.removeAttribute("term");
 		}
 		  //session.setAttribute("standard", dbProv.getStandard(standardS.getStandardId()));

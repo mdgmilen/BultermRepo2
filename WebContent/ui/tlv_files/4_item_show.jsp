@@ -1,6 +1,6 @@
-<%@page import="com.improve1.bulterm.TermNameList"%>
-<%@page import="com.improve1.bulterm.Term"%>
-<%@page import="com.improve1.bulterm.TermName"%>
+<%@page import="com.improve1.bulterm.entities.TermNameList"%>
+<%@page import="com.improve1.bulterm.entities.Term"%>
+<%@page import="com.improve1.bulterm.entities.TermName"%>
 
 <jsp:scriptlet>
   Term termS = (Term) session.getAttribute("term");

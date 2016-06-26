@@ -41,7 +41,7 @@
 		  
 		  
 		    
-<jsp:directive.page import="com.improve1.bulterm.TermList" />	   
+<jsp:directive.page import="com.improve1.bulterm.entities.TermList" />	   
 		   
 		   
 <jsp:include page="tlv_files/2_searchForm.jsp" />		    
