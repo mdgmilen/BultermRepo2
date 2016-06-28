@@ -6,7 +6,9 @@
 String firstVisitS = String.valueOf(session.getAttribute("first_visit"));
 
 if (firstVisitS.equals("true")) { //first_visit   </jsp:scriptlet> 
-<h3>За Вашия правилен технически превод ползвайте БУЛТЕРМ.</h3>
+<h3>За Вашия правилен технически превод ползвайте БУЛТЕРМ.<br /><br />
+Допълнение към речника може да намерите на https://bultermparov.wordpress.com
+</h3>
 Предпочитан браузер - Mozilla Firefox.
 
 <br /><br />
@@ -33,10 +35,10 @@ if (firstVisitS.equals("true")) { //first_visit   </jsp:scriptlet>
 <li><a href="http://www.stoykoparov.free.bg" target="_blank">Стойко Паров</a>
    – одитор по качество, сертифициран от ТÜV Akademie Rheinland  - Германия.</li>
 <li><a href="http://www.improve1.com" target="_blank">Improve 1 .com</a>
-   – блог съдържание от различни автори. Вие решавате, какво е важно! (на английски език) </li>
-<li><a href="http://www.bg.adastragrp.com" target="_blank">Info Data Manage</a>
+   – сайт на МиленГ, визитна картичка и повече... (на английски език) </li>
+<!--  <li><a href="http://www.bg.adastragrp.com" target="_blank">Info Data Manage</a>
    – „Adastra Group” е международна консултантска компания, специализирана в пълния спектър услуги за Складове от Данни 
-   (Data Warehousing) и Анализ на Бизнес Информация (Business Intelligence). </li>
+   (Data Warehousing) и Анализ на Бизнес Информация (Business Intelligence). </li>-->
 </ul>
 <jsp:scriptlet>
   } //first_visit  </jsp:scriptlet> 

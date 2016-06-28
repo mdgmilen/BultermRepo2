@@ -52,7 +52,7 @@ int languageId = Integer.parseInt( String.valueOf(session.getAttribute("language
     if (languageIdToCompare == 2) {
     </jsp:scriptlet>
       <jsp:text><![CDATA[<a href="]]></jsp:text>
-      <jsp:expression>ProjectSettings.pathPrefix</jsp:expression><jsp:text><![CDATA[servlet/TermItemViewServlet?term_id=]]></jsp:text><jsp:expression>((Term)terms.get(i)).getTermId()</jsp:expression>
+      <jsp:expression>ProjectSettings.pathPrefix</jsp:expression><jsp:text><![CDATA[servlet/TermItemServlet?term_id=]]></jsp:text><jsp:expression>((Term)terms.get(i)).getTermId()</jsp:expression>
       <jsp:text><![CDATA[" title="покажи Определение">]]></jsp:text>
         <jsp:expression>((Term)terms.get(i)).getTermName()</jsp:expression>
       <jsp:text><![CDATA[</a>]]></jsp:text> 
@@ -140,8 +140,5 @@ int languageId = Integer.parseInt( String.valueOf(session.getAttribute("language
 <li><a href="http://www.stoykoparov.free.bg" target="_blank">Стойко Паров</a>
    – одитор по качество, сертифициран от ТÜV Akademie Rheinland  - Германия.</li>
 <li><a href="http://www.improve1.com" target="_blank">Improve 1 .com</a>
-   – блог съдържание от различни автори. Вие решавате, какво е важно! (на английски език) </li>
-<li><a href="http://www.bg.adastragrp.com" target="_blank">Info Data Manage</a>
-   – „Adastra Group” е международна консултантска компания, специализирана в пълния спектър услуги за Складове от Данни 
-   (Data Warehousing) и Анализ на Бизнес Информация (Business Intelligence). </li>
+   – сайт на МиленГ, визитна картичка и повече... (на английски език) </li>
 </ul>

@@ -13,7 +13,7 @@
     <description></description>
     <display-name>TermListServlet</display-name>
     <servlet-name>TermListServlet</servlet-name>
-    <servlet-class>com.improve1.bulterm.TermListServlet</servlet-class>
+    <servlet-class>com.improve1.bulterm.servlets.TermListServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>TermListServlet</servlet-name>
@@ -21,39 +21,39 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>TermItemViewServlet</display-name>
-    <servlet-name>TermItemViewServlet</servlet-name>
-    <servlet-class>com.improve1.bulterm.TermItemViewServlet</servlet-class>
+    <display-name>TermItemServlet</display-name>
+    <servlet-name>TermItemServlet</servlet-name>
+    <servlet-class>com.improve1.bulterm.servlets.TermItemServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>TermItemViewServlet</servlet-name>
-    <url-pattern>/servlet/TermItemViewServlet</url-pattern>
+    <servlet-name>TermItemServlet</servlet-name>
+    <url-pattern>/servlet/TermItemServlet</url-pattern>
   </servlet-mapping>
-  <servlet>
+  <!-- <servlet>
     <description></description>
-    <display-name>TermListEditServlet</display-name>
-    <servlet-name>TermListEditServlet</servlet-name>
-    <servlet-class>com.improve1.bulterm.TermListEditServlet</servlet-class>
+    <display-name>TermListServlet</display-name>
+    <servlet-name>TermListServlet</servlet-name>
+    <servlet-class>com.improve1.bulterm.servlets.TermListServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>TermListEditServlet</servlet-name>
-    <url-pattern>/TermListEditServlet</url-pattern>
-  </servlet-mapping>
+    <servlet-name>TermListServlet</servlet-name>
+    <url-pattern>/servlet/TermListServlet</url-pattern>
+  </servlet-mapping> 
   <servlet>
     <description></description>
     <display-name>TermItemEditServlet</display-name>
     <servlet-name>TermItemEditServlet</servlet-name>
-    <servlet-class>com.improve1.bulterm.TermItemEditServlet</servlet-class>
+    <servlet-class>com.improve1.bulterm.servlets.TermItemEditServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>TermItemEditServlet</servlet-name>
     <url-pattern>/servlet/TermItemEditServlet</url-pattern>
-  </servlet-mapping>
+  </servlet-mapping>-->
   <servlet>
     <description></description>
     <display-name>LoginServlet</display-name>
     <servlet-name>LoginServlet</servlet-name>
-    <servlet-class>com.improve1.bulterm.LoginServlet</servlet-class>
+    <servlet-class>com.improve1.bulterm.servlets.LoginServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>LoginServlet</servlet-name>
@@ -63,7 +63,7 @@
     <description></description>
     <display-name>StandardListServlet</display-name>
     <servlet-name>StandardListServlet</servlet-name>
-    <servlet-class>com.improve1.bulterm.StandardListServlet</servlet-class>
+    <servlet-class>com.improve1.bulterm.servlets.StandardListServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>StandardListServlet</servlet-name>
@@ -71,12 +71,12 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>StandardItemEditServlet</display-name>
-    <servlet-name>StandardItemEditServlet</servlet-name>
-    <servlet-class>com.improve1.bulterm.StandardItemEditServlet</servlet-class>
+    <display-name>StandardItemServlet</display-name>
+    <servlet-name>StandardItemServlet</servlet-name>
+    <servlet-class>com.improve1.bulterm.servlets.StandardItemServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>StandardItemEditServlet</servlet-name>
-    <url-pattern>/servlet/StandardItemEditServlet</url-pattern>
+    <servlet-name>StandardItemServlet</servlet-name>
+    <url-pattern>/servlet/StandardItemServlet</url-pattern>
   </servlet-mapping>
 </web-app>

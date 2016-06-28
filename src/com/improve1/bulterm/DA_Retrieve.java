@@ -164,7 +164,7 @@ public class DA_Retrieve {
 				+ " left join entries_multilanguage em5 on em5.entry_id = e.id and em5.language_id = 5"
 				+ " left join terms_multilanguage   tm  on tm.term_id   = e.id"
 				+ " left join entries e2               on e2.id = e.parent_entry_id"
-				+ " left join term_categories tc       on e2.id = tc.term_id" + " where    e.id = ?"
+				+ " left join term_categories tc       on e2.id = tc.id_term" + " where    e.id = ?"
 				+ " and ( em1.name_a is not null or em2.name_a is not null"
 				+ " or    em3.name_a is not null or em4.name_a is not null " + " or    em5.name_a is not null )";
 		try {
@@ -226,8 +226,8 @@ public class DA_Retrieve {
 		daCud.connect();
 		try {
 			PreparedStatement ps = daCud.getConn()
-					.prepareStatement("select tc.term_id, tc.identifier, e.entry_name " + " from term_categories tc"
-							+ " inner join entries e on e.id = tc.term_id" + "   and e.parent_entry_id is not null",
+					.prepareStatement("select tc.id_term, tc.identifier, e.entry_name " + " from term_categories tc"
+							+ " inner join entries e on e.id = tc.id_term" + "   and e.parent_entry_id is not null",
 					ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
 			daCud.setPrepStmt(ps);
 			// this.prepStmt.setMaxRows(50);
@@ -258,8 +258,8 @@ public class DA_Retrieve {
 		daCud.connect();
 		try {
 			PreparedStatement ps = daCud.getConn().prepareStatement(
-					"select tc.term_id, tc.identifier, e.entry_name" + " from entries e"
-							+ " inner join term_categories tc on e.id = tc.term_id" + " and tc.term_id = ?",
+					"select tc.id_term, tc.identifier, e.entry_name" + " from entries e"
+							+ " inner join term_categories tc on e.id = tc.id_term" + " and tc.id_term = ?",
 					ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
 			daCud.setPrepStmt(ps);
 			daCud.getPrepStmt().setInt(1, id);

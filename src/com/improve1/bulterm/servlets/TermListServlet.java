@@ -24,6 +24,7 @@ import com.improve1.bulterm.DA_Retrieve;
 import com.improve1.bulterm.ProjectSettings;
 import com.improve1.bulterm.entities.Term;
 import com.improve1.bulterm.entities.TermList;
+import com.improve1.bulterm.entities.User;
 
 /**
  * Servlet implementation class TermListServlet
@@ -50,19 +51,24 @@ public class TermListServlet extends HttpServlet {
 		// TOD Auto-generated method stub
 		HttpSession session = request.getSession();
 		// session.setAttribute("hello", "Zdravej");
-		String actionP = request.getParameter("action");
-		String emailS = String.valueOf(session.getAttribute("email"));
-		if (actionP != null && actionP.equals("edit")) {
-			if (emailS.equals("null")) {
-				response.sendRedirect(ProjectSettings.pathPrefix + "ui/login.jsp");
-				return;
-			} else {
-				String anchorS = String.valueOf(session.getAttribute("anchor"));
-				session.removeAttribute("anchor");
-				response.sendRedirect(ProjectSettings.pathPrefix + "ui/term_list_view_edit.jsp" + anchorS);
-				return;
-			}
+		//String actionP = request.getParameter("action");
+		// String emailS = String.valueOf(session.getAttribute("email"));
+		User user = (User) session.getAttribute("user");
+		if (user == null) {
+			user = new User();
+			session.setAttribute("user", user);
 		}
+//		if (actionP != null && actionP.equals("edit")) {
+//			if (!user.isLogged()) {  // emailS.equals("null")
+//				response.sendRedirect(ProjectSettings.pathPrefix + "servlet/LoginServlet");
+//				return;
+//			} else {
+//				String anchorS = String.valueOf(session.getAttribute("anchor"));
+//				session.removeAttribute("anchor");
+//				response.sendRedirect(ProjectSettings.pathPrefix + "ui/term_list_view_edit.jsp" + anchorS);
+//				return;
+//			}
+//		}
 		// DbProvider dbProv = new DbProvider();
 		DA_Retrieve daRetrieve = new DA_Retrieve();
 		session.setAttribute("languages", daRetrieve.getLanguages());
@@ -156,7 +162,7 @@ public class TermListServlet extends HttpServlet {
 			session.removeAttribute("unlm");
 			response.sendRedirect(ProjectSettings.pathPrefix + "ui/term_list_edit.jsp");
 		} else {
-			response.sendRedirect(ProjectSettings.pathPrefix + "ui/term_list_view.jsp#anchorTermId" + termId);
+			response.sendRedirect(ProjectSettings.pathPrefix + "ui/term_list.jsp#anchorTermId" + termId);
 		}
 	} // doGet()
 
@@ -225,7 +231,7 @@ public class TermListServlet extends HttpServlet {
 				"location" + request.getLocale().getCountry(), symbolsToSearchS, String.valueOf(languageIdS),
 				String.valueOf(resultsCountS), request.getRemoteAddr(), "info4", dateTime, dateTimeInt, dateTimeStr);
 		// }
-		response.sendRedirect(ProjectSettings.pathPrefix + "ui/term_list_view.jsp");
+		response.sendRedirect(ProjectSettings.pathPrefix + "ui/term_list.jsp");
 	}
 
 	private String getColumnToSearch(String columnsComboPar) {

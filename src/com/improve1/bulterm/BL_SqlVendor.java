@@ -20,9 +20,9 @@ public class BL_SqlVendor {
 			}
 			sqlQuery += " left  join terms_multilanguage tm on    tm.term_id  = e.id" + "   and tm.language_id = 2"
 					+ " inner join entries es on     es.id = e.parent_entry_id"
-					+ " inner join term_categories tcs on tcs.term_id = es.id"
+					+ " inner join term_categories tcs on tcs.id_term = es.id"
 					+ " inner join entries eg on     eg.id = es.parent_entry_id"
-					+ " inner join term_categories tcg on tcg.term_id = eg.id";
+					+ " inner join term_categories tcg on tcg.id_term = eg.id";
 		} // if symbolsToSearch != null
 		return sqlQuery;
 	}// getTermsSql()
@@ -34,9 +34,9 @@ public class BL_SqlVendor {
 				+ " inner join entries_multilanguage em on em.entry_id = e.id" + "   and em.language_id = ?"
 				+ " left  join terms_multilanguage tm on    tm.term_id  = e.id" + "   and tm.language_id = 2"
 				+ " inner join entries es on     es.id = e.parent_entry_id"
-				+ " inner join term_categories tcs on tcs.term_id = es.id"
+				+ " inner join term_categories tcs on tcs.id_term = es.id"
 				+ " inner join entries eg on     eg.id = es.parent_entry_id"
-				+ " inner join term_categories tcg on tcg.term_id = eg.id" + " where e.id = ?";
+				+ " inner join term_categories tcg on tcg.id_term = eg.id" + " where e.id = ?";
 		return sqlQuery;
 	}// getTermAdaptedSql()
 
@@ -52,9 +52,9 @@ public class BL_SqlVendor {
 		}
 		sqlCount += " left  join terms_multilanguage tm on    tm.term_id  = e.id" + "   and tm.language_id = 2"
 				+ " left join entries es on     es.id = e.parent_entry_id"
-				+ " left join term_categories tcs on tcs.term_id = es.id"
+				+ " left join term_categories tcs on tcs.id_term = es.id"
 				+ " left join entries eg on     eg.id = es.parent_entry_id"
-				+ " left join term_categories tcg on tcg.term_id = eg.id"
+				+ " left join term_categories tcg on tcg.id_term = eg.id"
 				+ " left join entries_multilanguage em_bulgarian on e.id = em_bulgarian.entry_id and em_bulgarian.language_id = 2"
 				+ " where em_bulgarian.name_a is not null " + " ) a";
 		return sqlCount;
@@ -72,7 +72,7 @@ public class BL_SqlVendor {
 				+ " left join entries_multilanguage em5 on em5.entry_id = e.id and em5.language_id = 5"
 				+ " left join terms_multilanguage   tm  on tm.term_id   = e.id"
 				+ " left join entries e2                on e2.id = e.parent_entry_id"
-				+ " left join term_categories tc       on e2.id = tc.term_id" + " where ";
+				+ " left join term_categories tc       on e2.id = tc.id_term" + " where ";
 		if (!symbolsToSearch.equals("")) {
 			switch (selectedLanguageId) {
 			case 1:

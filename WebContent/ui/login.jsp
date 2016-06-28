@@ -61,15 +61,14 @@
 		    <jsp:text><![CDATA[<a href="]]></jsp:text>
 		    <jsp:expression>ProjectSettings.pathPrefix</jsp:expression>
 		    <jsp:text><![CDATA[servlet/TermListServlet?first_visit=true">]]></jsp:text>	  
-		      Начало
-		    <jsp:text><![CDATA[</a>]]></jsp:text>
+		      Начало<jsp:text><![CDATA[</a>]]></jsp:text>
 		        -&gt; 
-    <jsp:text><![CDATA[<a href="]]></jsp:text>
+    <!--<jsp:text><![CDATA[<a href="]]></jsp:text>
     <jsp:expression>ProjectSettings.pathPrefix</jsp:expression>
     <jsp:text><![CDATA[servlet/TermListServlet]]></jsp:text>
-    <!-- jsp:expression>termId /jsp:expression>-->
+    <!- jsp:expression>termId /jsp:expression> ->
     <jsp:text><![CDATA[">Търсене</a>]]></jsp:text>
-    -&gt; Вход с електронна поща </h6>
+    -&gt; --> Вход с електронна поща </h6>
 
 <jsp:text><![CDATA[<form name="login_form" method="post" action="]]></jsp:text>
 <jsp:expression>ProjectSettings.pathPrefix</jsp:expression>
@@ -77,7 +76,7 @@
 
 <input id="email_input"    type="text"     name="emailInput" size="40" value="" /><br />
 <input id="password_input" type="password" name="passwordInput" size="40" value="" /><br />
- <input type="submit" size="40" value="Продължи" />
+ <input type="submit" size="40" value="Влез" />
 
 <jsp:text><![CDATA[</form>]]></jsp:text>
 		  </div>
@@ -89,7 +88,7 @@
 	</div>
 	<div id="footer">
     <div id="copyright">
-		  <p> © 2010-2012 <a href="http://bulterm.improve1.com" target="_self">
+		  <p> © 2010-2016 <a href="http://bulterm.improve1.com" target="_self">
 		    BULTERM</a>  – v8-01052012 <br /> 		     
 		    </p>
 			

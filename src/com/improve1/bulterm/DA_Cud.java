@@ -54,13 +54,13 @@ public class DA_Cud {
 		// localold: improve1_bulterm_2/3 root milen
 		// localold: bultermdb1 _1 improve1_bulterm
 		// local: improve1_bultermL bultermuser milen
-		String url = "jdbc:mysql://localhost:3306/improve1_bultermL";
+		String url = "jdbc:mysql://localhost:3306/improve1_bulterm";
 		try {
 			if (this.getConn() == null) {
 				Class.forName("com.mysql.jdbc.Driver");
 				java.util.Properties prop = new Properties();
 				prop.setProperty("user", "bultermuser");
-				prop.setProperty("password", "xxx"); //ivannmmilennddimitar
+				prop.setProperty("password", "milen"); //ivannmmilennddimitar
 				// prop.setProperty("useUnicode","true");
 				prop.setProperty("characterEncoding", "utf-8"); // Cp1251
 				// prop.setProperty("DB2e_ENCODING", "Cp102"); // "Cp102" UTF-8
